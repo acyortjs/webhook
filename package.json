@@ -1,0 +1,34 @@
+{
+  "name": "webhook",
+  "version": "0.1.0",
+  "description": "GitHub webhook trigger Travis-ci deploy",
+  "private": true,
+  "main": "index.js",
+  "engines": {
+    "node": ">=7.6.0"
+  },
+  "scripts": {
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/acyortjs/webhook.git"
+  },
+  "keywords": [
+    "webhook",
+    "github",
+    "api",
+    "travis-ci",
+    "ci"
+  ],
+  "author": "LoeiFy@gmail.com",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/acyortjs/webhook/issues"
+  },
+  "homepage": "https://github.com/acyortjs/webhook#readme",
+  "dependencies": {
+    "axios": "^0.16.1",
+    "koa": "^2.2.0"
+  }
+}
