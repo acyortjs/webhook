@@ -29,6 +29,7 @@
   "homepage": "https://github.com/acyortjs/webhook#readme",
   "dependencies": {
     "axios": "^0.16.1",
-    "koa": "^2.2.0"
+    "koa": "^2.2.0",
+    "koa-bodyparser": "^4.2.0"
   }
 }
