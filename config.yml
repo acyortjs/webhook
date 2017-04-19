@@ -1,0 +1,15 @@
+# GitHub secret
+# https://github.com/acyortjs/acyortjs.github.io/settings/hooks
+secret:
+
+# Travis Ci token
+# https://github.com/travis-ci/travis.rb#token
+token:
+
+# repository
+# example: travis-ci/travis-core
+repository:
+
+# branch
+# example: master
+branch:

@@ -2,13 +2,41 @@ const Koa = require('koa')
 const axios = require('axios')
 const bodyParser = require('koa-bodyparser')
 const crypto = require('crypto')
-const fs = require('fs')
+const yaml = require('yamljs')
 
-const secret = fs.readFileSync('./secret', 'utf-8')
+const config = yaml.load('./_config.yml')
 
-if (!secret) {
-  return console.log('Please set the secret')
+if (
+  !config.secret      ||
+  !config.token       ||
+  !config.repository  ||
+  !config.branch
+) {
+  return console.log('Missing configuration information')
 }
+
+const $header = {
+  'Content-Type': 'application/json',
+  'Accept': 'application/json',
+  'Travis-API-Version': 3,
+  'Authorization': 'token ' + config.token
+}
+const $body = JSON.stringify({
+  request: {
+    branch: config.branch
+  }
+})
+const $url = `https://api.travis-ci.org/repo/${encodeURIComponent(config.repository)}/requests`
+
+axios({
+  method: 'POST',
+  url: $url,
+  headers: $header,
+  data: $body
+})
+.then(res => console.log(res))
+
+/*
 
 const hmac = crypto.createHmac('sha1', secret)
 const server = new Koa()
@@ -36,9 +64,9 @@ server.use(async (ctx, next) => {
 
 server.use(async (ctx, next) => {
   ctx.response.type = 'application/json'
-  ctx.response.body = {
-    c: 0
-  }
+  ctx.response.body = { c: 0 }
 })
 
 server.listen(2333)
+
+*/
