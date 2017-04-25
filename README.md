@@ -36,7 +36,13 @@ $ travis token
 npm install
 ```
 
-2. 项目配置
+2. 生成配置文件
+
+```bash
+npm start
+```
+
+3. 项目配置
 
 修改 config.yml，填入配置信息
 
@@ -64,6 +70,8 @@ branch:
 node index.js
 ```
 
+你也可以使用 https://github.com/foreverjs/forever 来守护这个 nodejs 进程
+
 ### 配置 GitHub webhook
 
 进入你的 issue 内容项目，选择 setting，添加一个 webhook，具体配置
@@ -72,6 +80,8 @@ node index.js
 - Content type：选择 `application/json`
 - Secret：前面设置的密钥
 - Which events would you like to trigger this webhook?：选择 `Let me select individual events.`，然后只勾选 `Issues`
+
+### 最后
 
 保存你的设置，这时候当你更新 issue 时候，会触发 Travis Ci 构建，然后你的博客就自动更新了
 
