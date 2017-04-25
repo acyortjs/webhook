@@ -67,7 +67,8 @@ branch:
 3. 启动 webhook
 
 ```bash
-node index.js
+# 默认端口 2333
+node index.js [port]
 ```
 
 你也可以使用 https://github.com/foreverjs/forever 来守护这个 nodejs 进程
