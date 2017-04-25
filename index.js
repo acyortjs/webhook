@@ -3,7 +3,7 @@ const axios = require('axios')
 const bodyParser = require('koa-bodyparser')
 const crypto = require('crypto')
 const yaml = require('yamljs')
-
+const port = Number(process.argv[2]) || 2333
 const config = yaml.load('./config.yml')
 
 if (
@@ -67,4 +67,5 @@ server.use(async (ctx, next) => {
   .catch(err => ctx.response.status = 500)
 })
 
-server.listen(2333)
+server.listen(port)
+console.log(`Server running\n=> http://127.0.0.1:${port}/`, '\nCTRL + C to shutdown')
