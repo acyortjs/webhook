@@ -42,7 +42,7 @@ server.use(async (ctx, next) => {
   }
 
   if (header['x-github-event'] === 'ping') {
-    return ctx.response.status = 206
+    return ctx.response.status = 204
   }
 
   if (header['x-github-event'] !== 'issues') {
